@@ -35,3 +35,32 @@ body{
     margin-top: 15px;
 }
 /*************************^Fin Section Production^******************************************/
+/******** Debut section store****/
+
+#store {
+    padding-top: 15px;
+    overflow-y : scroll;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9) );
+}
+
+#buildings{
+    background-image: url(/assets/images/panel-horizontal.png);
+    margin-top: 15px;
+    min-height: 16px;
+    transition: all 5s;
+}
+
+#buildings:hover::before{
+    content: "Buildings";
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 4px black, 0px 1px 4px black ;
+   
+    
+}
+
+
+
+
+/********** fin section store*******/
