@@ -1,4 +1,10 @@
+@import url("./layout/_grid.css");
+@import url("/assets/css/base/_fonts.css");
+@import url("/assets/css/base/_typography.css");
+
 body{
     background-image: url("../../assets/images/bg-blue.jpg");
     background-size: cover;
+    font-family: merriweather, serif;
+    user-select: none;
 }

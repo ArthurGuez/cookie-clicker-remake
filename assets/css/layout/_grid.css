@@ -1,0 +1,33 @@
+#game {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: minmax(250px, 400px) 16px minmax(500px, 2fr) 16px minmax(150px, 300px);
+    grid-template-areas: 
+        "bakery separator1  production separator2 store";
+}
+
+#bakery {
+    grid-area: bakery;
+}
+
+#production {
+    grid-area: production;
+}
+
+#store{
+    grid-area: store;
+}
+
+.separator {
+    background-image: url(../../../../assets/images/panel-vertical.png);
+}
+.separator:first-child{
+    grid-area: separator1;
+    
+} 
+
+.separator:last-child{
+    grid-area: separator2;
+}
+
+
