@@ -3,6 +3,7 @@
 @import url("../../assets/css/base/_typography.css");
 @import url("../../assets/css/layout/_bakery.css");
 @import url("../../assets/css/layout/_production-lines.css");
+@import url("../../assets/css/layout/_store.css");
 
 * {
     margin:0;
@@ -15,27 +16,4 @@ body {
     background-size: cover;
     font-family: merriweather, serif;
     user-select: none;
-  
-  /******** Debut section store****/
-
-#store {
-    padding-top: 15px;
-    overflow-y : scroll;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9) );
 }
-
-#buildings{
-    background-image: url(/assets/images/panel-horizontal.png);
-    margin-top: 15px;
-    min-height: 16px;
-    transition:
-
-#buildings:hover::before{
-    content: "Buildings";
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 4px black, 0px 1px 4px black ;  
-}
-
-/********** fin section store*******/
