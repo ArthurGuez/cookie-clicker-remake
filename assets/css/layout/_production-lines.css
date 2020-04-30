@@ -1,0 +1,18 @@
+#production {
+    overflow-y: scroll;
+}
+
+#production h2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+}
+
+#production hr {
+    background-image: url('../../images/panel-horizontal.png');
+    height: 16px;
+}
+
+#hr2 {
+    margin-top: 15px;
+}
