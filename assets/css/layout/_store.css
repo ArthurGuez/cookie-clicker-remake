@@ -19,18 +19,23 @@
     transition: 3s ease;
 }
 
+#buildings > *:hover{
+    box-shadow: inset 0px 0px 15px 3px #ffffff;
+}
+
 #buildings > * {
     background-image: url('../../images/store-tile.jpg');
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #building-cursor .icon {
     background-image: url("../../images/buildings.png");
     background-position-x: -60px;
     height: 58px;
-    width: 60px;
+    width: 70px;
 }
 
 #building-grandma .icon {
@@ -54,7 +59,7 @@
     background-position-x: -60px;
     background-position-y: -260px;
     height: 58px;
-    width: 60px;
+    width: 70px;
 }
 
 #building-factory .icon {
@@ -65,13 +70,32 @@
     width: 70px;
 }
 
+.box{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .name {
+    padding-top: 10px;
     font-size: 1.3em;
+    font-weight: bold;
+    text-shadow: 0px 0px 4px #000000, 0px 1px 4px #000000;
 }
 
 .cost {
-    background: url('../../images/money.png') no-repeat;
-    align-self: flex-end;
+    background: url("../../images/money.png") no-repeat;
     font-size: 0.7em;
     color: #66ff66;
+    text-shadow: 0px 0px 4px #000000, 0px 1px 4px #000000;
+    width : 15vh;
+    text-align: center;
+}
+
+.disabled .cost{
+    color: #ff6666;
+}
+
+.disabled{
+    filter: brightness(80%);
 }

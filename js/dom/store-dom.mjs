@@ -11,6 +11,8 @@ export const createBuildings = () => {
 
         let divIcon = document.createElement('div');
         divIcon.className = 'icon';
+        let divBox = document.createElement('div');
+        divBox.className = 'box';
         let divName = document.createElement('div');
         divName.className = 'name';
         let divCost = document.createElement('div');
@@ -19,8 +21,9 @@ export const createBuildings = () => {
         divNumber.className = 'number';
 
         divBuilding.appendChild(divIcon);
-        divBuilding.appendChild(divName);
-        divBuilding.appendChild(divCost);
+        divBuilding.appendChild(divBox);
+        divBox.appendChild(divName);
+        divBox.appendChild(divCost);
         divBuilding.appendChild(divNumber);
 
         divName.innerHTML = buildings[i].name;
