@@ -26,6 +26,8 @@ export default class Bakery{
     get cookiesPerSecond(){
         return this._cookiesPerSecond;
     }
-}
 
-console.log('hello');
+    bakeCookies(howMany){
+        this._cookies += howMany;
+    }
+}
