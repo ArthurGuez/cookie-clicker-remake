@@ -22,10 +22,56 @@
 #buildings > * {
     background-image: url('../../images/store-tile.jpg');
     cursor: pointer;
-    z-index: 1;
+    display: flex;
+    flex-direction: row;
 }
 
 #building-cursor .icon {
     background-image: url("../../images/buildings.png");
-    z-index: 2;
+    background-position-x: -60px;
+    height: 58px;
+    width: 60px;
+}
+
+#building-grandma .icon {
+    background-image: url("../../images/buildings.png");
+    background-position-x: -60px;
+    background-position-y: -70px;
+    height: 58px;
+    width: 70px;
+}
+
+#building-farm .icon {
+    background-image: url("../../images/buildings.png");
+    background-position-x: -60px;
+    background-position-y: -190px;
+    height: 58px;
+    width: 70px;
+}
+
+#building-mine .icon {
+    background-image: url("../../images/buildings.png");
+    background-position-x: -60px;
+    background-position-y: -260px;
+    height: 58px;
+    width: 60px;
+}
+
+#building-factory .icon {
+    background-image: url("../../images/buildings.png");
+    background-position-x: -60px;
+    background-position-y: -320px;
+    height: 58px;
+    width: 70px;
+}
+
+.name {
+    font-size: 1.3em;
+}
+
+.cost {
+    background: url('../../images/money.png') no-repeat;
+    align-self: flex-end;
+    font-size: 0.7em;
+    color: #66ff66;
 }
