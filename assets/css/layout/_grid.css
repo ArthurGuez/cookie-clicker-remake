@@ -14,19 +14,19 @@
     grid-area: production;
 }
 
-#store{
+#store {
     grid-area: store;
 }
 
 .separator {
     background-image: url('../../images/panel-vertical.png');
 }
-.separator:first-child{
+.separator:first-child {
     grid-area: separator1;
     
 } 
 
-.separator:last-child{
+.separator:last-child {
     grid-area: separator2;
 }
 
