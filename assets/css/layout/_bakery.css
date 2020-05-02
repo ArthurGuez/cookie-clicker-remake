@@ -37,6 +37,7 @@
     background-position: center;
     cursor: pointer;
     filter: drop-shadow(0 0 1.5rem #ffffff);
+    position: relative;
 }
 
 #bigCookie:hover {
@@ -51,6 +52,7 @@
     animation : andreia_and_coline 3s;
     font-size: 1.3em;
     font-weight: bold;
+    position: absolute;
 }
 
 @keyframes andreia_and_coline{

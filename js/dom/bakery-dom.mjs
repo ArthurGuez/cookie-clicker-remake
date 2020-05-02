@@ -15,13 +15,28 @@ export const updateBakery = (element) => {
 
 const bigCookie = document.getElementById('bigCookie');
 
+export const playAudioClick = () => {
+    for (let i = 1; i < 8; i++) {
+        let audio = document.createElement('audio');
+        audio.id = `sound${i}`;
+        audio.className = 'sonsClick';
+        audio.src = `assets/sounds/click${i}.mp3`;
+        document.body.appendChild(audio);
+    }
+}
+
 export const addCookies = (element) => {
-    bigCookie.addEventListener('click', () => {
+    bigCookie.addEventListener('click', (event) => {
     element.bakeCookies(element.cookiesPerClick);
+    const sonsClick = document.querySelectorAll('.sonsClick');
+    sonsClick[Math.floor(Math.random() * 7 )].play();
 
     let cookiesPerClick = bigCookie.appendChild(document.createElement('div'));
     cookiesPerClick.classList.add('animBigCookie');
+    cookiesPerClick.style.left = `${event.offsetX}px`;
+    cookiesPerClick.style.top = `${event.offsetY}px`;
     cookiesPerClick.innerHTML = `+${element.cookiesPerClick}`;
+
     cookiesPerClick.addEventListener('animationend',() => {
         bigCookie.removeChild(cookiesPerClick);
     });
@@ -29,6 +44,8 @@ export const addCookies = (element) => {
     cookiesStock.innerHTML = element.cookies;   
 });
 }
+
+
 
 
 
