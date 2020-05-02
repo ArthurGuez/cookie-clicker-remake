@@ -7,16 +7,22 @@
 #buildings {
     background-image: url('../../images/panel-horizontal.png');
     margin-top: 15px;
-    min-height: 16px;
+    min-height: 16px;    
 }
 
-#buildings:hover::before {
+#buildings::before{
+    margin-top: -15px;
+    opacity: 0;
     content: "Buildings";
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0px 0px 4px black, 0px 1px 4px black ;
-    transition: 3s ease;
+    transition: 0.75s;   
+}
+
+#buildings:hover::before {
+    opacity : 1; 
 }
 
 #buildings > *:hover{
@@ -31,7 +37,7 @@
     flex-wrap: wrap;
 }
 
-#building-cursor .icon {
+.icon{
     background-image: url("../../images/buildings.png");
     background-position-x: -60px;
     height: 58px;
@@ -39,35 +45,19 @@
 }
 
 #building-grandma .icon {
-    background-image: url("../../images/buildings.png");
-    background-position-x: -60px;
     background-position-y: -70px;
-    height: 58px;
-    width: 70px;
 }
 
 #building-farm .icon {
-    background-image: url("../../images/buildings.png");
-    background-position-x: -60px;
     background-position-y: -190px;
-    height: 58px;
-    width: 70px;
 }
 
 #building-mine .icon {
-    background-image: url("../../images/buildings.png");
-    background-position-x: -60px;
     background-position-y: -260px;
-    height: 58px;
-    width: 70px;
 }
 
 #building-factory .icon {
-    background-image: url("../../images/buildings.png");
-    background-position-x: -60px;
     background-position-y: -320px;
-    height: 58px;
-    width: 70px;
 }
 
 .box{

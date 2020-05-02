@@ -46,3 +46,26 @@
 #bigCookie:active {
     transform: scale(0.95);
 }
+
+.animBigCookie{
+    animation : andreia_and_coline 3s;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+@keyframes andreia_and_coline{
+    0% {
+        opacity : 1;
+    }
+    20%{
+        opacity : 0.5;
+    }
+    50%{
+        opacity : 0.2;
+    }
+    100%{
+        opacity : 0;
+        transform: translateY(-200px);
+    }
+
+}

@@ -19,6 +19,13 @@ export const addCookies = (element) => {
     bigCookie.addEventListener('click', () => {
     element.bakeCookies(element.cookiesPerClick);
 
+    let cookiesPerClick = bigCookie.appendChild(document.createElement('div'));
+    cookiesPerClick.classList.add('animBigCookie');
+    cookiesPerClick.innerHTML = `+${element.cookiesPerClick}`;
+    cookiesPerClick.addEventListener('animationend',() => {
+        bigCookie.removeChild(cookiesPerClick);
+    });
+    
     cookiesStock.innerHTML = element.cookies;   
 });
 }
