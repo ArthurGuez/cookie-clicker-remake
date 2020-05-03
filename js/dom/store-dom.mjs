@@ -32,17 +32,17 @@ export const createBuildings = () => {
 }
 
 export const switchBuildings = (element) => {
-   for (let i = 0; i< buildings.length; i++) {
-    if (element.cookies >= buildings[i].cost){ 
-        let divBuilding = document.getElementsByClassname("locked");
-        console.log(divBuilding);
-        for (let j = 0; j< divBuilding.length; j++) {
-            divBuilding[j].classList.remove("disabled");
-            divBuilding[j].classList.add ("unlocked enabled");
-        }
-       
+    for (let i = 0; i < buildings.length; i++){
+        if (element.cookies >= buildings[i].cost){ 
+            let divBuilding = document.getElementById(`building-${buildings[i].name.toLowerCase()}`);
+            
+            divBuilding.classList.remove("locked");
+            divBuilding.classList.add("unlocked");
+            divBuilding.classList.remove("disabled");
+            divBuilding.classList.add("enabled");
+        }   
     }
-   }
-    
-}
+}   
+
+
     

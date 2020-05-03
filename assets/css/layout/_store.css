@@ -37,11 +37,15 @@
     flex-wrap: wrap;
 }
 
+.disabled .icon{
+    filter: brightness(80%);
+    background-position-x: -60px;
+}
+
 .icon{
     background-image: url("../../images/buildings.png");
-    background-position-x: -60px;
     height: 58px;
-    width: 70px;
+    width: 62px;
 }
 
 #building-grandma .icon {
@@ -84,9 +88,5 @@
 
 .disabled .cost{
     color: #ff6666;
-}
-
-.disabled{
-    filter: brightness(80%);
 }
 

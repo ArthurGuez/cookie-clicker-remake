@@ -1,5 +1,8 @@
+import {switchBuildings} from '../dom/store-dom.mjs'
+
 let stock = document.getElementById('cookiesStock');
 let cookiesStock = stock.getElementsByTagName('span')[0];
+const bigCookie = document.getElementById('bigCookie');
 
 export const updateBakery = (element) => {
     let bakery = document.getElementById('bakery');
@@ -11,25 +14,13 @@ export const updateBakery = (element) => {
     let cookiesPerSecond = document.getElementById('cookiesPerSecond');
     let cookiesPerSecondNumber = cookiesPerSecond.getElementsByTagName('span')[0];
     cookiesPerSecondNumber.innerHTML = element.cookiesPerSecond;
-
-    console.log(element.cookies);
-}
-
-const bigCookie = document.getElementById('bigCookie');
-
-export const playAudioClick = () => {
-    for (let i = 1; i < 8; i++) {
-        let audio = document.createElement('audio');
-        audio.id = `sound${i}`;
-        audio.className = 'sonsClick';
-        audio.src = `assets/sounds/click${i}.mp3`;
-        document.body.appendChild(audio);
-    }
 }
 
 export const addCookies = (element) => {
     bigCookie.addEventListener('click', (event) => {
     element.bakeCookies(element.cookiesPerClick);
+    switchBuildings(element);
+    
     const sonsClick = document.querySelectorAll('.sonsClick');
     sonsClick[Math.floor(Math.random() * (7-1))+1 ].play();
 
@@ -47,8 +38,15 @@ export const addCookies = (element) => {
 });
 }
 
-
-
+export const playAudioClick = () => {
+    for (let i = 1; i < 8; i++) {
+        let audio = document.createElement('audio');
+        audio.id = `sound${i}`;
+        audio.className = 'sonsClick';
+        audio.src = `assets/sounds/click${i}.mp3`;
+        document.body.appendChild(audio);
+    }
+}
 
 
 

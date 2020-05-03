@@ -4,7 +4,6 @@ import { updateBakery } from "./dom/bakery-dom.mjs";
 import { createBuildings } from "./dom/store-dom.mjs";
 import { addCookies } from "./dom/bakery-dom.mjs";
 import { playAudioClick } from "./dom/bakery-dom.mjs";
-import { switchBuildings} from "./dom/store-dom.mjs";
 
 const newBakery = new Bakery();
 
@@ -12,4 +11,3 @@ updateBakery(newBakery);
 createBuildings();
 playAudioClick();
 addCookies(newBakery);
-switchBuildings(newBakery);
