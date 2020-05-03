@@ -30,3 +30,19 @@ export const createBuildings = () => {
         divCost.innerHTML = buildings[i].cost;
     }
 }
+
+export const switchBuildings = (element) => {
+   for (let i = 0; i< buildings.length; i++) {
+    if (element.cookies >= buildings[i].cost){ 
+        let divBuilding = document.getElementsByClassname("locked");
+        console.log(divBuilding);
+        for (let j = 0; j< divBuilding.length; j++) {
+            divBuilding[j].classList.remove("disabled");
+            divBuilding[j].classList.add ("unlocked enabled");
+        }
+       
+    }
+   }
+    
+}
+    

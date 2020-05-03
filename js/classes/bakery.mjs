@@ -1,7 +1,7 @@
 export default class Bakery{
-    constructor(name = "Metal Zombie",cookies,buildings,cookiesPerClick,cookiesPerSecond){
+    constructor(name = "Metal Zombie",cookies = 16,buildings,cookiesPerClick,cookiesPerSecond){
         this._name = name;
-        this._cookies = 0;
+        this._cookies = cookies;
         this._buildings = [];
         this._cookiesPerClick = 1;
         this._cookiesPerSecond = 0;
