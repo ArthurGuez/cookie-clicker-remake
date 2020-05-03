@@ -29,7 +29,7 @@ export const addCookies = (element) => {
     bigCookie.addEventListener('click', (event) => {
     element.bakeCookies(element.cookiesPerClick);
     const sonsClick = document.querySelectorAll('.sonsClick');
-    sonsClick[Math.floor(Math.random() * 7 )].play();
+    sonsClick[Math.floor(Math.random() * (7-1))+1 ].play();
 
     let cookiesPerClick = bigCookie.appendChild(document.createElement('div'));
     cookiesPerClick.classList.add('animBigCookie');

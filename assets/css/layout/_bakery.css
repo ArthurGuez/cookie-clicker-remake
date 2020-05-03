@@ -49,13 +49,13 @@
 }
 
 .animBigCookie{
-    animation : andreia_and_coline 3s;
+    animation : andreiaAndColine 3s;
     font-size: 1.3em;
     font-weight: bold;
     position: absolute;
 }
 
-@keyframes andreia_and_coline{
+@keyframes andreiaAndColine{
     0% {
         opacity : 1;
     }
