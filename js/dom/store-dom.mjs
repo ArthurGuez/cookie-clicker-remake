@@ -1,8 +1,9 @@
 import {buildings} from '../../js/data.mjs';
 
+let buildingsLength = buildings.length;
+let buildingsHtml = document.getElementById('buildings');
+
 export const createBuildings = () => {
-    let buildingsLength = buildings.length;
-    let buildingsHtml = document.getElementById('buildings');
     for(let i = 0 ; i < buildingsLength ; i++){
         let divBuilding = document.createElement('div');
         divBuilding.id = `building-${buildings[i].name.toLowerCase()}`;
@@ -31,9 +32,9 @@ export const createBuildings = () => {
     }
 }
 
-export const switchBuildings = (element) => {
-    for (let i = 0; i < buildings.length; i++){
-        if (element.cookies >= buildings[i].cost){ 
+export const switchBuildings = (bakeryObject) => {
+    for (let i = 0; i < buildingsLength; i++){
+        if (bakeryObject.cookies >= buildings[i].cost){ 
             let divBuilding = document.getElementById(`building-${buildings[i].name.toLowerCase()}`);
             
             divBuilding.classList.remove("locked");
@@ -44,5 +45,24 @@ export const switchBuildings = (element) => {
     }
 }   
 
+export const buyBuildings = (buildingObject) => {
+    for(let j = 0 ; j < buildingsLength; j++){
+        let priceOfBuilding = buildings[j].cost;
+        buildingObject.cost = priceOfBuilding;
+    }
+    let divBuilding = buildingsHtml.childNodes;
+    console.log(divBuilding);
+    divBuilding.forEach(building => building.addEventListener('click', () => { buildingObject.buy(); }
+    ));
+    
+    
+}
+
+export const addBuildings = (buildingObject) => {
+    let divCost = document.getElementsByClassName('cost');
+    for (let i = 0 ; i < divCost.length ; i++){
+        divCost[i].innerHTML = buildingObject.cost;
+    }
+}
 
     
