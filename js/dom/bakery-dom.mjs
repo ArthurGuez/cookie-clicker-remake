@@ -4,22 +4,22 @@ let stock = document.getElementById('cookiesStock');
 let cookiesStock = stock.getElementsByTagName('span')[0];
 const bigCookie = document.getElementById('bigCookie');
 
-export const updateBakery = (element) => {
+export const updateBakery = (bakeryObject) => {
     let bakery = document.getElementById('bakery');
     let bakeryName = bakery.getElementsByTagName('h2')[0];
-    bakeryName.innerHTML = element.name;
+    bakeryName.innerHTML = bakeryObject.name;
 
-    cookiesStock.innerHTML = element.cookies;
+    cookiesStock.innerHTML = bakeryObject.cookies;
 
     let cookiesPerSecond = document.getElementById('cookiesPerSecond');
     let cookiesPerSecondNumber = cookiesPerSecond.getElementsByTagName('span')[0];
-    cookiesPerSecondNumber.innerHTML = element.cookiesPerSecond;
+    cookiesPerSecondNumber.innerHTML = bakeryObject.cookiesPerSecond;
 }
 
-export const addCookies = (element) => {
+export const addCookies = (bakeryObject) => {
     bigCookie.addEventListener('click', (event) => {
-    element.bakeCookies(element.cookiesPerClick);
-    switchBuildings(element);
+    bakeryObject.bakeCookies(bakeryObject.cookiesPerClick);
+    switchBuildings(bakeryObject);
     
     const sonsClick = document.querySelectorAll('.sonsClick');
     sonsClick[Math.floor(Math.random() * (7-1))+1 ].play();
@@ -28,13 +28,13 @@ export const addCookies = (element) => {
     cookiesPerClick.classList.add('animBigCookie');
     cookiesPerClick.style.left = `${event.offsetX}px`;
     cookiesPerClick.style.top = `${event.offsetY}px`;
-    cookiesPerClick.innerHTML = `+${element.cookiesPerClick}`;
+    cookiesPerClick.innerHTML = `+${bakeryObject.cookiesPerClick}`;
 
     cookiesPerClick.addEventListener('animationend',() => {
         bigCookie.removeChild(cookiesPerClick);
     });
     
-    cookiesStock.innerHTML = element.cookies;   
+    cookiesStock.innerHTML = bakeryObject.cookies;   
 });
 }
 

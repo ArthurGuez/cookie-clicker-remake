@@ -37,6 +37,10 @@
     flex-wrap: wrap;
 }
 
+#buildings > *:active{
+    box-shadow: inset 0px 0px 15px 3px black;
+}
+
 .disabled .icon{
     filter: brightness(80%);
     background-position-x: -60px;
