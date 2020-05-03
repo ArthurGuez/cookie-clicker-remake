@@ -11,6 +11,8 @@ export const updateBakery = (element) => {
     let cookiesPerSecond = document.getElementById('cookiesPerSecond');
     let cookiesPerSecondNumber = cookiesPerSecond.getElementsByTagName('span')[0];
     cookiesPerSecondNumber.innerHTML = element.cookiesPerSecond;
+
+    console.log(element.cookies);
 }
 
 const bigCookie = document.getElementById('bigCookie');
