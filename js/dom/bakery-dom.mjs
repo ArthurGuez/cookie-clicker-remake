@@ -4,7 +4,7 @@ let stock = document.getElementById('cookiesStock');
 let cookiesStock = stock.getElementsByTagName('span')[0];
 const bigCookie = document.getElementById('bigCookie');
 
-export const updateBakery = (bakeryObject) => {
+export const updateBakery = bakeryObject => {
     let bakery = document.getElementById('bakery');
     let bakeryName = bakery.getElementsByTagName('h2')[0];
     bakeryName.innerHTML = bakeryObject.name;
@@ -16,13 +16,13 @@ export const updateBakery = (bakeryObject) => {
     cookiesPerSecondNumber.innerHTML = bakeryObject.cookiesPerSecond;
 }
 
-export const addCookies = (bakeryObject) => {
-    bigCookie.addEventListener('click', (event) => {
+export const addCookies = bakeryObject => {
+    bigCookie.addEventListener('click', event => {
     bakeryObject.bakeCookies(bakeryObject.cookiesPerClick);
     switchBuildings(bakeryObject);
     
     const sonsClick = document.querySelectorAll('.sonsBakeryClick');
-    sonsClick[Math.floor(Math.random() * (7-1))+1 ].play();
+    sonsClick[Math.floor(Math.random() * (7 - 1)) + 1].play();
 
     let cookiesPerClick = bigCookie.appendChild(document.createElement('div'));
     cookiesPerClick.classList.add('animBigCookie');
@@ -30,7 +30,7 @@ export const addCookies = (bakeryObject) => {
     cookiesPerClick.style.top = `${event.offsetY}px`;
     cookiesPerClick.innerHTML = `+${bakeryObject.cookiesPerClick}`;
 
-    cookiesPerClick.addEventListener('animationend',() => {
+    cookiesPerClick.addEventListener('animationend', () => {
         bigCookie.removeChild(cookiesPerClick);
     });
     
