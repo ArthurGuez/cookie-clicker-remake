@@ -13,8 +13,6 @@ createBuildings();
 playAudioClick();
 playAudioBuy();
 addCookies(newBakery);
-buyBuildings(newBuilding);
-
-
+buyBuildings(newBakery);
 
 
