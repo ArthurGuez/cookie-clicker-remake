@@ -19,6 +19,10 @@ export default class Building{
         return this._number;
     }
 
+    set number(newNumber){
+        this._number = newNumber;
+    }
+
     get cookiesPerSecond(){
         return this._cookiesPerSecond;
     }

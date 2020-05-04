@@ -21,7 +21,7 @@ export const addCookies = (bakeryObject) => {
     bakeryObject.bakeCookies(bakeryObject.cookiesPerClick);
     switchBuildings(bakeryObject);
     
-    const sonsClick = document.querySelectorAll('.sonsClick');
+    const sonsClick = document.querySelectorAll('.sonsBakeryClick');
     sonsClick[Math.floor(Math.random() * (7-1))+1 ].play();
 
     let cookiesPerClick = bigCookie.appendChild(document.createElement('div'));
@@ -41,10 +41,10 @@ export const addCookies = (bakeryObject) => {
 export const playAudioClick = () => {
     for (let i = 1; i < 8; i++) {
         let audio = document.createElement('audio');
-        audio.id = `sound${i}`;
-        audio.className = 'sonsClick';
+        audio.id = `soundBakery${i}`;
+        audio.className = 'sonsBakeryClick';
         audio.src = `assets/sounds/click${i}.mp3`;
-        document.body.appendChild(audio);
+        bigCookie.appendChild(audio);
     }
 }
 
