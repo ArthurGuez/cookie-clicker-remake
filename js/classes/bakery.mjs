@@ -1,4 +1,6 @@
-export default class Bakery{
+import Building from '../classes/building.mjs'
+
+export default class Bakery extends Building{
     constructor(name = "Metal Zombie",cookies = 15,buildings,cookiesPerClick,cookiesPerSecond){
         this._name = name;
         this._cookies = cookies;
@@ -27,8 +29,11 @@ export default class Bakery{
         return this._cookiesPerSecond;
     }
 
-
     bakeCookies(howMany){
         this._cookies += howMany;
+    }
+
+    buyBuilding(which){
+
     }
 }
