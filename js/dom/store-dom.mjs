@@ -45,7 +45,6 @@ export const switchBuildings = (bakeryObject) => {
     }
 }   
 
-
 export const buyBuildings = (buildingObject) => {
     let divBuilding = buildingsHtml.childNodes;
     divBuilding.forEach(building => building.addEventListener('click', () => {
@@ -53,13 +52,24 @@ export const buyBuildings = (buildingObject) => {
         let divNumber = building.childNodes[2];
         buildingObject.cost = divCost.innerHTML;
         buildingObject.number = divNumber.innerHTML
-        console.log(buildingObject.number);
         buildingObject.buy(); 
         divCost.innerHTML = buildingObject.cost;
         divNumber.innerHTML = buildingObject.number;
+
+        const sonsBuy = document.querySelectorAll('.sonsStoreClick');
+        sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
     }));
     
     
 }
 
+export const playAudioBuy = () => {
+    for (let i = 1; i < 5; i++) {
+        let audio = document.createElement('audio');
+        audio.id = `soundStore${i}`;
+        audio.className = 'sonsStoreClick';
+        audio.src = `assets/sounds/buy${i}.mp3`;
+        buildingsHtml.appendChild(audio);
+    }
+}
     
