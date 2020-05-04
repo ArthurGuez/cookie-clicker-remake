@@ -1,12 +1,12 @@
-import {buildings} from '../../js/data.mjs';
+import {data} from '../../js/data.mjs';
 
-let buildingsLength = buildings.length;
+let dataLength = data.length;
 let buildingsHtml = document.getElementById('buildings');
 
 export const createBuildings = () => {
-    for (let i = 0 ; i < buildingsLength ; i++) {
+    for (let i = 0 ; i < dataLength ; i++) {
         let divBuilding = document.createElement('div');
-        divBuilding.id = `building-${buildings[i].name.toLowerCase()}`;
+        divBuilding.id = `building-${data[i].name.toLowerCase()}`;
         divBuilding.className = "locked disabled";
         buildingsHtml.appendChild(divBuilding);
 
@@ -27,15 +27,15 @@ export const createBuildings = () => {
         divBox.appendChild(divCost);
         divBuilding.appendChild(divNumber);
 
-        divName.innerHTML = buildings[i].name;
-        divCost.innerHTML = buildings[i].cost;
+        divName.innerHTML = data[i].name;
+        divCost.innerHTML = data[i].cost;
     }
 }
 
 export const switchBuildings = bakeryObject => {
-    for (let i = 0; i < buildingsLength; i++) {
-        if (bakeryObject.cookies >= buildings[i].cost) { 
-            let divBuilding = document.getElementById(`building-${buildings[i].name.toLowerCase()}`);
+    for (let i = 0; i < dataLength; i++) {
+        if (bakeryObject.cookies >= data[i].cost) { 
+            let divBuilding = document.getElementById(`building-${data[i].name.toLowerCase()}`);
             
             divBuilding.classList.remove("locked");
             divBuilding.classList.add("unlocked");
@@ -45,22 +45,35 @@ export const switchBuildings = bakeryObject => {
     }
 }   
 
-export const buyBuildings = buildingObject => {
+export const buyBuildings = bakeryObject => {
     let divBuilding = buildingsHtml.childNodes;
+
     divBuilding.forEach(building => building.addEventListener('click', () => {
+        let divName = building.childNodes[1].childNodes[0];
         let divCost = building.childNodes[1].childNodes[1]; 
         let divNumber = building.childNodes[2];
+        console.log(bakeryObject.buildings);
 
-        buildingObject.cost = divCost.innerHTML;
-        buildingObject.number = divNumber.innerHTML
-        buildingObject.buy(); 
-        divCost.innerHTML = buildingObject.cost;
-        divNumber.innerHTML = buildingObject.number;
-
-        const sonsBuy = document.querySelectorAll('.sonsStoreClick');
-        sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
-    }));
+        bakeryObject.buyBuilding(divName.innerHTML)
+    }))
 }
+
+// export const buyBuildings = buildingObject => {
+//     let divBuilding = buildingsHtml.childNodes;
+//     divBuilding.forEach(building => building.addEventListener('click', () => {
+//         let divCost = building.childNodes[1].childNodes[1]; 
+//         let divNumber = building.childNodes[2];
+
+//         buildingObject.cost = divCost.innerHTML;
+//         buildingObject.number = divNumber.innerHTML
+//         buildingObject.buy(); 
+//         divCost.innerHTML = buildingObject.cost;
+//         divNumber.innerHTML = buildingObject.number;
+
+//         const sonsBuy = document.querySelectorAll('.sonsStoreClick');
+//         sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
+//     }));
+// }
 
 export const playAudioBuy = () => {
     for (let i = 1; i < 5; i++) {
