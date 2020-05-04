@@ -45,24 +45,21 @@ export const switchBuildings = (bakeryObject) => {
     }
 }   
 
-export const buyBuildings = (buildingObject) => {
-    for(let j = 0 ; j < buildingsLength; j++){
-        let priceOfBuilding = buildings[j].cost;
-        buildingObject.cost = priceOfBuilding;
-    }
-    let divBuilding = buildingsHtml.childNodes;
-    console.log(divBuilding);
-    divBuilding.forEach(building => building.addEventListener('click', () => { buildingObject.buy(); }
-    ));
-    
-    
-}
 
-export const addBuildings = (buildingObject) => {
-    let divCost = document.getElementsByClassName('cost');
-    for (let i = 0 ; i < divCost.length ; i++){
-        divCost[i].innerHTML = buildingObject.cost;
-    }
+export const buyBuildings = (buildingObject) => {
+    let divBuilding = buildingsHtml.childNodes;
+    divBuilding.forEach(building => building.addEventListener('click', () => {
+        let divCost = building.childNodes[1].childNodes[1]; 
+        let divNumber = building.childNodes[2];
+        buildingObject.cost = divCost.innerHTML;
+        buildingObject.number = divNumber.innerHTML
+        console.log(buildingObject.number);
+        buildingObject.buy(); 
+        divCost.innerHTML = buildingObject.cost;
+        divNumber.innerHTML = buildingObject.number;
+    }));
+    
+    
 }
 
     
