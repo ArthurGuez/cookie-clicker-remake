@@ -1,39 +1,46 @@
-import Building from '../classes/building.mjs'
+import Building from "../classes/building.mjs";
+import { buildings } from "../data.mjs";
 
-export default class Bakery extends Building{
-    constructor(name = "Metal Zombie",cookies = 15,buildings,cookiesPerClick,cookiesPerSecond){
+export default class Bakery {
+    constructor(name = "Metal Zombie", cookies = 15, buildings, cookiesPerClick, cookiesPerSecond) {
         this._name = name;
         this._cookies = cookies;
-        this._buildings = [];
+        this._buildings = buildings.map(building => {
+            return new Building(building);
+        });
         this._cookiesPerClick = 1;
         this._cookiesPerSecond = 0;
     }
 
-    get name(){
+    get name() {
         return this._name;
     }
 
-    get cookies(){
+    get cookies() {
         return this._cookies;
     }
 
-    get buildings(){
+    get buildings() {
         return this.buildings;
     }
 
-    get cookiesPerClick(){
+    get cookiesPerClick() {
         return this._cookiesPerClick;
     }
 
-    get cookiesPerSecond(){
+    get cookiesPerSecond() {
         return this._cookiesPerSecond;
     }
 
-    bakeCookies(howMany){
+    bakeCookies(howMany) {
         this._cookies += howMany;
     }
 
-    buyBuilding(which){
-
-    }
+    
+    // buyBuilding(which) {
+    //     const building = this._buildings.find(element => {
+    //         element.name === which);
+    //     }
+    //     building.buy()
+    // }
 }
