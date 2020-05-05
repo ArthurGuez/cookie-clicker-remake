@@ -9,11 +9,12 @@ export const updateBakery = bakeryObject => {
     let bakeryName = bakery.getElementsByTagName('h2')[0];
     bakeryName.innerHTML = bakeryObject.name;
 
-    cookiesStock.innerHTML = bakeryObject.cookies;
+    cookiesStock.innerHTML = Math.floor(bakeryObject.cookies);
 
     let cookiesPerSecond = document.getElementById('cookiesPerSecond');
     let cookiesPerSecondNumber = cookiesPerSecond.getElementsByTagName('span')[0];
-    cookiesPerSecondNumber.innerHTML = bakeryObject.cookiesPerSecond;
+
+    cookiesPerSecondNumber.innerHTML = Math.round(bakeryObject.cookiesPerSecond * 10) / 10;
 }
 
 export const addCookies = bakeryObject => {
@@ -34,8 +35,17 @@ export const addCookies = bakeryObject => {
         bigCookie.removeChild(cookiesPerClick);
     });
     
-    cookiesStock.innerHTML = bakeryObject.cookies;   
+    cookiesStock.innerHTML = Math.floor(bakeryObject.cookies);   
 });
+}
+
+export const addCookiesPerSecond = (bakeryObject) => {
+    function cookiesAutoProduction() {
+        bakeryObject.cookies += bakeryObject.cookiesPerSecond;
+        switchBuildings(bakeryObject);
+        updateBakery(bakeryObject);
+    } 
+    window.setInterval(cookiesAutoProduction, 1000);
 }
 
 export const playAudioClick = () => {
