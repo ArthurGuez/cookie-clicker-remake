@@ -2,7 +2,7 @@ import Building from "../classes/building.mjs";
 import { data } from "../data.mjs";
 
 export default class Bakery {
-    constructor(name = "Metal Zombie", cookies = 14, buildings, cookiesPerClick, cookiesPerSecond) {
+    constructor(name = "Metal Zombie", cookies = 0, buildings, cookiesPerClick, cookiesPerSecond) {
         this._name = name;
         this._cookies = cookies;
         this._buildings = data.map(building => {

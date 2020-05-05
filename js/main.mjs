@@ -5,6 +5,7 @@ import { addCookies } from "./dom/bakery-dom.mjs";
 import { playAudioClick } from "./dom/bakery-dom.mjs";
 import { playAudioBuy } from "./dom/store-dom.mjs";
 import { buyBuildings } from "./dom/store-dom.mjs";
+import { addCookiesPerSecond } from "./dom/bakery-dom.mjs";
 
 const newBakery = new Bakery();
 
@@ -14,5 +15,7 @@ playAudioClick();
 playAudioBuy();
 addCookies(newBakery);
 buyBuildings(newBakery);
+addCookiesPerSecond(newBakery);
+
 
 

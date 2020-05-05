@@ -50,9 +50,11 @@ export const switchBuildings = bakeryObject => {
             divBuilding.classList.add("enabled");
 
             if (divBuilding.classList.contains("unlocked")) {
-                console.log("works");
                 document.getElementById(`building-${data[i+2].name.toLowerCase()}`).style.display = "";
             }
+        } else {
+            divBuilding.classList.remove("enabled");
+            divBuilding.classList.add("disabled");
         }
     }
 }   
@@ -80,7 +82,7 @@ export const buyBuildings = bakeryObject => {
                         divNumber.innerHTML = bakeryObject.buildings[i].number;
                         
                         const sonsBuy = document.querySelectorAll('.sonsStoreClick');
-                        sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
+                        sonsBuy[Math.floor(Math.random() * (4 - 1)) + 1].play();
                 }
             }
         }
