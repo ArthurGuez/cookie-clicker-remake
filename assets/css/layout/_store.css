@@ -99,8 +99,10 @@
 }
 
 .number{
-    
-    color: black;
+    padding-top: 12px;
+    padding-left: 80px;
+    font-size: 30px;
+    color: #565448;
 }
 
 
