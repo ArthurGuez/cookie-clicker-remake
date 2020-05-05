@@ -5,8 +5,8 @@ export default class Bakery {
     constructor(name = "Metal Zombie", cookies = 15, buildings, cookiesPerClick, cookiesPerSecond) {
         this._name = name;
         this._cookies = cookies;
-        this.buildings = data.map(building => {
-            return new Building(building.name, building.description, building.cookiesPerSecond, building.cost, building.number);
+        this._buildings = data.map(building => {
+            return new Building(building);
         });
         this._cookiesPerClick = 1;
         this._cookiesPerSecond = 0;
@@ -20,9 +20,13 @@ export default class Bakery {
         return this._cookies;
     }
 
-    // get buildings() {
-    //     return this.buildings;
-    // }
+    set cookies(newStock){
+        this._cookies = newStock;
+    }
+
+    get buildings() {
+        return this._buildings;
+    }
 
     get cookiesPerClick() {
         return this._cookiesPerClick;
@@ -37,9 +41,7 @@ export default class Bakery {
     }
     
     buyBuilding(which) {
-        const buildingObject = this.buildings.find(element => {
-            element.name === which;
-        })
+        const buildingObject = this._buildings.find(element => element.name === which);
         buildingObject.buy()
     }
 }
