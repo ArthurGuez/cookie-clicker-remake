@@ -1,5 +1,6 @@
 export default class Building{
-    constructor(name, description, cookiesPerSecond, cost, number = 0) {
+    constructor(building) {
+        const {name,description,number = 0,cookiesPerSecond,cost} = building;
         this._name = name;
         this._description = description;
         this._number = number;

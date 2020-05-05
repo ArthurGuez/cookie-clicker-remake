@@ -46,6 +46,14 @@
     background-position-x: -60px;
 }
 
+.disabled .cost{
+    color: #ff6666;
+}
+
+.locked *{
+    display:none;
+}
+
 .icon{
     background-image: url("../../images/buildings.png");
     height: 58px;
@@ -90,7 +98,10 @@
     text-align: center;
 }
 
-.disabled .cost{
-    color: #ff6666;
+.number{
+    
+    color: black;
 }
+
+
 
