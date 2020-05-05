@@ -37,27 +37,26 @@
     flex-wrap: wrap;
 }
 
-#buildings > *:active{
+#buildings > .enabled:active{
     box-shadow: inset 0px 0px 15px 3px black;
 }
 
-.disabled .icon{
-    filter: brightness(80%);
-    background-position-x: -60px;
+.disabled {
+    filter: brightness(50%);
 }
 
-.disabled .cost{
+.disabled .cost {
     color: #ff6666;
 }
 
-.locked *{
-    display:none;
-}
-
-.icon{
+.icon {
     background-image: url("../../images/buildings.png");
     height: 58px;
     width: 62px;
+}
+
+.locked .icon {
+    background-position-x: -60px;
 }
 
 #building-grandma .icon {
@@ -100,7 +99,7 @@
 
 .number{
     padding-top: 12px;
-    padding-left: 80px;
+    padding-left: 10%;
     font-size: 30px;
     color: #565448;
 }
