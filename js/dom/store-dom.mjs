@@ -7,12 +7,12 @@ let buildingsHtml = document.getElementById('buildings');
 export const createBuildings = () => {
     for (let i = 0 ; i < dataLength ; i++) {
         let divBuilding = document.createElement('div');
-        divBuilding.id = `building-${data[i].name.toLowerCase()}`;
         
-        if(i < 2 ){
-            divBuilding.className = "unlocked disabled";
-        }else{
-            divBuilding.className = "locked disabled";
+        divBuilding.id = `building-${data[i].name.toLowerCase()}`;
+        divBuilding.className = "locked disabled";
+
+        if (i > 1) {
+            divBuilding.style.display = "none";
         }
 
         buildingsHtml.appendChild(divBuilding);
@@ -42,13 +42,18 @@ export const createBuildings = () => {
 export const switchBuildings = bakeryObject => {
     for (let i = 0; i < dataLength; i++) {
         let divBuilding = document.getElementById(`building-${data[i].name.toLowerCase()}`);
-        if (bakeryObject.cookies >= data[i].cost) { 
-        
-            // divBuilding.classList.remove("locked");
-            // divBuilding.classList.add("unlocked");
+
+        if (bakeryObject.cookies >= bakeryObject.buildings[i].cost) { 
+            divBuilding.classList.remove("locked");
+            divBuilding.classList.add("unlocked");
             divBuilding.classList.remove("disabled");
             divBuilding.classList.add("enabled");
-        }   
+
+            if (divBuilding.classList.contains("unlocked")) {
+                console.log("works");
+                document.getElementById(`building-${data[i+2].name.toLowerCase()}`).style.display = "";
+            }
+        }
     }
 }   
 
@@ -56,23 +61,30 @@ export const buyBuildings = bakeryObject => {
     let divBuilding = buildingsHtml.childNodes;
 
     divBuilding.forEach(building => building.addEventListener('click', () => {
+        
         let divName = building.childNodes[1].childNodes[0];
         let divCost = building.childNodes[1].childNodes[1]; 
         let divNumber = building.childNodes[2];
 
-        for(let i = 0 ; i < dataLength ; i++){
-            if(bakeryObject.buildings[i].name === divName.innerHTML){
-                bakeryObject.cookies -= bakeryObject.buildings[i].cost;
-                bakeryObject.buyBuilding(divName.innerHTML)
-                divCost.innerHTML = bakeryObject.buildings[i].cost;
-                divNumber.innerHTML = bakeryObject.buildings[i].number;    
+        for (let i = 0 ; i < dataLength ; i++) {
+            if (bakeryObject.cookies < bakeryObject.buildings[i].cost) {
+                building.classList.remove("enabled");
+                building.classList.add("disabled");
+                } else {
+                    if (bakeryObject.buildings[i].name === divName.innerHTML) {
+                        bakeryObject.cookies -= bakeryObject.buildings[i].cost;
+        
+                        bakeryObject.buyBuilding(divName.innerHTML);
+        
+                        divCost.innerHTML = bakeryObject.buildings[i].cost;
+                        divNumber.innerHTML = bakeryObject.buildings[i].number;
+                        
+                        const sonsBuy = document.querySelectorAll('.sonsStoreClick');
+                        sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
+                }
             }
         }
-        updateBakery(bakeryObject);
-        
-
-        const sonsBuy = document.querySelectorAll('.sonsStoreClick');
-        sonsBuy[Math.floor(Math.random() * (4-1))+1 ].play();
+        updateBakery(bakeryObject);        
     }))
 }
 

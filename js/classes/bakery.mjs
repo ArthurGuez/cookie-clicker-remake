@@ -2,7 +2,7 @@ import Building from "../classes/building.mjs";
 import { data } from "../data.mjs";
 
 export default class Bakery {
-    constructor(name = "Metal Zombie", cookies = 15, buildings, cookiesPerClick, cookiesPerSecond) {
+    constructor(name = "Metal Zombie", cookies = 14, buildings, cookiesPerClick, cookiesPerSecond) {
         this._name = name;
         this._cookies = cookies;
         this._buildings = data.map(building => {
@@ -20,7 +20,7 @@ export default class Bakery {
         return this._cookies;
     }
 
-    set cookies(newStock){
+    set cookies(newStock) {
         this._cookies = newStock;
     }
 
@@ -43,5 +43,6 @@ export default class Bakery {
     buyBuilding(which) {
         const buildingObject = this._buildings.find(element => element.name === which);
         buildingObject.buy()
+        this._cookiesPerSecond += buildingObject.cookiesPerSecond;
     }
 }
