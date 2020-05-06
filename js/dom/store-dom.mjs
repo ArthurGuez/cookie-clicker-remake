@@ -1,5 +1,6 @@
 import { data } from '../../js/data.mjs';
 import { updateBakery } from '../dom/bakery-dom.mjs'; 
+import { createBackground} from '../dom/production-dom.mjs';
 
 let dataLength = data.length;
 let buildingsHtml = document.getElementById('buildings');
@@ -83,8 +84,12 @@ export const buyBuildings = bakeryObject => {
                         
                         const sonsBuy = document.querySelectorAll('.sonsStoreClick');
                         sonsBuy[Math.floor(Math.random() * (4 - 1)) + 1].play();
+
+                        if(divName.innerHTML !== 'Cursor'){
+                            createBackground(divName.innerHTML.toLowerCase());
+                        }
+                    }
                 }
-            }
         }
         updateBakery(bakeryObject);        
     }))

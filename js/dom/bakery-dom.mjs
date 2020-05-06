@@ -57,8 +57,3 @@ export const playAudioClick = () => {
         bigCookie.appendChild(audio);
     }
 }
-
-
-
-
-
