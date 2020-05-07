@@ -4,7 +4,7 @@ import { data } from "../data.mjs";
 export default class Bakery {
     constructor(bakery) {
         this._name = bakery ? bakery._name : "Metal Zombie";
-        this._cookies = bakery ? bakery._cookies : 500;
+        this._cookies = bakery ? bakery._cookies : 0;
         this._cookiesPerClick = bakery ? bakery._cookiesPerClick : 1;
         this._cookiesPerSecond = bakery ? bakery._cookiesPerSecond : 0;
         if(bakery && bakery._buildings){
