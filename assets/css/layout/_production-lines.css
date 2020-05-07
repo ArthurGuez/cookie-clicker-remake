@@ -44,6 +44,66 @@
     top : 50px
 }
 
+.grandma:nth-of-type(4){
+    left : 50px;
+    top : 10px;
+}
+
+.grandma:nth-of-type(5){
+    left: 60px;
+    top : 30px
+}
+
+.grandma:nth-of-type(6){
+    left: 70px;
+    top : 50px
+}
+
+.grandma:nth-of-type(7){
+    left : 100px;
+    top : 10px;
+}
+
+.grandma:nth-of-type(8){
+    left: 110px;
+    top : 30px
+}
+
+.grandma:nth-of-type(9){
+    left: 120px;
+    top : 50px
+}
+
+.grandma:nth-of-type(10){
+    left : 150px;
+    top : 10px;
+}
+
+.grandma:nth-of-type(11){
+    left: 160px;
+    top : 30px
+}
+
+.grandma:nth-of-type(12){
+    left: 170px;
+    top : 50px
+}
+
+.grandma:nth-of-type(13){
+    left : 200px;
+    top : 10px;
+}
+
+.grandma:nth-of-type(14){
+    left: 210px;
+    top : 30px
+}
+
+.grandma:nth-of-type(15){
+    left: 220px;
+    top : 50px
+}
+
 #production-farm{
     background-image: url('../../images/farm-background.png');
     height: 128px;
