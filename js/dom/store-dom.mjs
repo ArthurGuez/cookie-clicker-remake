@@ -57,6 +57,13 @@ export const switchBuildings = bakeryObject => {
             divBuilding.classList.remove("enabled");
             divBuilding.classList.add("disabled");
         }
+
+        if(bakeryObject.buildings[i]){
+            let divCost = divBuilding.childNodes[1].childNodes[1]; 
+            let divNumber = divBuilding.childNodes[2];
+            divCost.innerHTML = bakeryObject.buildings[i].cost;
+            divNumber.innerHTML = bakeryObject.buildings[i].number;
+        }
     }
 }   
 
