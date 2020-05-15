@@ -30,7 +30,7 @@ if(getSavedBakery === null){
     buyBuildings(newBakery);
     addCookiesPerSecond(newBakery);
 
-    window.setInterval(saveBakery, 3000, newBakery)
+    window.setInterval(saveBakery, 30000, newBakery)
 }else{
     const jsBakery = JSON.parse(getSavedBakery);
     const savedBakery = new Bakery(jsBakery);
@@ -42,7 +42,7 @@ if(getSavedBakery === null){
     buyBuildings(savedBakery);
     addCookiesPerSecond(savedBakery);
 
-    window.setInterval(saveBakery, 3000, savedBakery);
+    window.setInterval(saveBakery, 30000, savedBakery);
 }
 
 function saveBakery (bakeryObject) {
