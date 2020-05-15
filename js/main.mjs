@@ -7,20 +7,7 @@ import { playAudioBuy } from "./dom/store-dom.mjs";
 import { buyBuildings } from "./dom/store-dom.mjs";
 import { addCookiesPerSecond } from "./dom/bakery-dom.mjs";
 
-const newBakery = new Bakery();
-
-    updateBakery(newBakery);
-    createBuildings();
-    playAudioClick();
-    playAudioBuy();
-    addCookies(newBakery);
-    buyBuildings(newBakery);
-    addCookiesPerSecond(newBakery);
-
-// const getSavedBakery = localStorage.getItem('savedBakery');
-
-// if(getSavedBakery === null){
-//     const newBakery = new Bakery();
+// const newBakery = new Bakery();
 
 //     updateBakery(newBakery);
 //     createBuildings();
@@ -30,22 +17,35 @@ const newBakery = new Bakery();
 //     buyBuildings(newBakery);
 //     addCookiesPerSecond(newBakery);
 
-//     window.setInterval(saveBakery, 30000, newBakery)
-// }else{
-//     const jsBakery = JSON.parse(getSavedBakery);
-//     const savedBakery = new Bakery(jsBakery);
-//     updateBakery(savedBakery);
-//     createBuildings();
-//     playAudioClick();
-//     playAudioBuy();
-//     addCookies(savedBakery);
-//     buyBuildings(savedBakery);
-//     addCookiesPerSecond(savedBakery);
+const getSavedBakery = localStorage.getItem('savedBakery');
 
-//     window.setInterval(saveBakery, 30000, savedBakery);
-// }
+if(getSavedBakery === null){
+    const newBakery = new Bakery();
 
-// function saveBakery (bakeryObject) {
-//     localStorage.setItem('savedBakery',JSON.stringify(bakeryObject));
-//     console.log('Saved ! ')
-// }
+    updateBakery(newBakery);
+    createBuildings(newBakery);
+    playAudioClick();
+    playAudioBuy();
+    addCookies(newBakery);
+    buyBuildings(newBakery);
+    addCookiesPerSecond(newBakery);
+
+    window.setInterval(saveBakery, 3000, newBakery)
+}else{
+    const jsBakery = JSON.parse(getSavedBakery);
+    const savedBakery = new Bakery(jsBakery);
+    updateBakery(savedBakery);
+    createBuildings(savedBakery);
+    playAudioClick();
+    playAudioBuy();
+    addCookies(savedBakery);
+    buyBuildings(savedBakery);
+    addCookiesPerSecond(savedBakery);
+
+    window.setInterval(saveBakery, 3000, savedBakery);
+}
+
+function saveBakery (bakeryObject) {
+    localStorage.setItem('savedBakery',JSON.stringify(bakeryObject));
+    console.log('Saved ! ')
+}
