@@ -23,7 +23,7 @@ if(getSavedBakery === null){
     const newBakery = new Bakery();
 
     updateBakery(newBakery);
-    createBuildings();
+    createBuildings(newBakery);
     playAudioClick();
     playAudioBuy();
     addCookies(newBakery);
@@ -34,9 +34,8 @@ if(getSavedBakery === null){
 }else{
     const jsBakery = JSON.parse(getSavedBakery);
     const savedBakery = new Bakery(jsBakery);
-    console.log(savedBakery);
     updateBakery(savedBakery);
-    createBuildings();
+    createBuildings(savedBakery);
     playAudioClick();
     playAudioBuy();
     addCookies(savedBakery);
@@ -48,4 +47,5 @@ if(getSavedBakery === null){
 
 function saveBakery (bakeryObject) {
     localStorage.setItem('savedBakery',JSON.stringify(bakeryObject));
+    console.log('Saved ! ')
 }

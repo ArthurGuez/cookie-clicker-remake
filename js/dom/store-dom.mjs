@@ -5,7 +5,7 @@ import { createBackground} from '../dom/production-dom.mjs';
 let dataLength = data.length;
 let buildingsHtml = document.getElementById('buildings');
 
-export const createBuildings = () => {
+export const createBuildings = (bakeryObject) => {
     for (let i = 0 ; i < dataLength ; i++) {
         let divBuilding = document.createElement('div');
         
@@ -35,8 +35,9 @@ export const createBuildings = () => {
         divBox.appendChild(divCost);
         divBuilding.appendChild(divNumber);
 
-        divName.innerHTML = data[i].name;
-        divCost.innerHTML = data[i].cost;
+        divName.innerHTML = bakeryObject.buildings[i].name;
+        divCost.innerHTML = bakeryObject.buildings[i].cost;
+        divNumber.innerHTML = bakeryObject.buildings[i].number;
     }
 }
 
@@ -56,6 +57,13 @@ export const switchBuildings = bakeryObject => {
         } else {
             divBuilding.classList.remove("enabled");
             divBuilding.classList.add("disabled");
+        }
+
+        if(bakeryObject.buildings[i]){
+            let divCost = divBuilding.childNodes[1].childNodes[1]; 
+            let divNumber = divBuilding.childNodes[2];
+            divCost.innerHTML = bakeryObject.buildings[i].cost;
+            divNumber.innerHTML = bakeryObject.buildings[i].number;
         }
     }
 }   
